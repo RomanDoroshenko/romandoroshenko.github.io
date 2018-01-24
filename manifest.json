@@ -1,11 +1,11 @@
 {
-    "name": "SquirrelApp",
-    "short_name": "Squirrel",
+    "name": "SquirellApp",
+    "short_name": "Squirell",
     "lang": "ru",
     "start_url": "/",
     "display": "standalone",
-    "theme_color": "#E65100",
-    "background_color": "#E65100",
+    "theme_color": "#ea593c",
+    "background_color": "#ea593c",
     "icons": [
         {
         "src": "\/android-icon-36x36.png",
