@@ -29954,6 +29954,17 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var exercises = [{
+  id: 0,
+  title: 'Подтягивания на гравитроне',
+  workoutType: 'Торс',
+  target: 'Спина',
+  sets: '4-5',
+  reps: '20-25',
+  thumb: '/images/thumbs/back.png',
+  tut: '/images/animated/back.mp4'
+}];
+
 // var screenWidth = window.innerWidth;
 // var screenHeight = window.innerHeight*0.85;
 
@@ -30027,7 +30038,7 @@ var TabsExampleSwipeable = function (_React$Component) {
             onChange: this.handleChange,
             value: this.state.slideIndex
           },
-          _react2.default.createElement(_Tabs.Tab, { label: '\u0413/\u0421', value: 0,
+          _react2.default.createElement(_Tabs.Tab, { label: '\u0422\u043E\u0440\u0441', value: 0,
             style: {
               backgroundColor: '#F4511E'
             } }),
@@ -30072,10 +30083,10 @@ var TabsExampleSwipeable = function (_React$Component) {
             _react2.default.createElement(
               _cardStack.CardStack,
               null,
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null)
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] })
             )
           ),
           _react2.default.createElement(
@@ -30084,10 +30095,10 @@ var TabsExampleSwipeable = function (_React$Component) {
             _react2.default.createElement(
               _cardStack.CardStack,
               null,
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null)
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] })
             )
           ),
           _react2.default.createElement(
@@ -30096,10 +30107,10 @@ var TabsExampleSwipeable = function (_React$Component) {
             _react2.default.createElement(
               _cardStack.CardStack,
               null,
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null)
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] })
             )
           ),
           _react2.default.createElement(
@@ -30108,10 +30119,10 @@ var TabsExampleSwipeable = function (_React$Component) {
             _react2.default.createElement(
               _cardStack.CardStack,
               null,
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null)
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] })
             )
           ),
           _react2.default.createElement(
@@ -30120,10 +30131,10 @@ var TabsExampleSwipeable = function (_React$Component) {
             _react2.default.createElement(
               _cardStack.CardStack,
               null,
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null),
-              _react2.default.createElement(_cardStack.Card, null)
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
+              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] })
             )
           )
         )
@@ -33792,6 +33803,7 @@ var CardStack = function (_React$Component) {
   }, {
     key: 'handleCardClick',
     value: function handleCardClick(cardIndex, cardRef) {
+
       this.setState({
         activeCardIndex: cardIndex === this.state.activeCardIndex ? null : cardIndex
       });
@@ -33852,16 +33864,16 @@ var Card = function Card(props) {
       'div',
       { className: _cardStack2.default.card_header },
       _react2.default.createElement('img', {
-        src: 'http://ggym.ru/files/130910/clip_image005.jpg',
+        src: props.exercise.thumb,
         className: _cardStack2.default.card_thumb
       }),
       _react2.default.createElement(
         'h2',
         { className: _cardStack2.default.card_title },
-        '\u0412\u0435\u0440\u0442\u0438\u043A\u0430\u043B\u044C\u043D\u0430\u044F \u0442\u044F\u0433\u0430 \u0432 \u0442\u0440\u0435\u043D\u0430\u0436\u0451\u0440\u0435'
+        props.exercise.title
       )
     ),
-    _react2.default.createElement(
+    props.exercise && props.isActive && _react2.default.createElement(
       'div',
       { className: _cardStack2.default.card_content },
       _react2.default.createElement(
@@ -33880,9 +33892,8 @@ var Card = function Card(props) {
               { className: 'material-icons' },
               'gps_fixed'
             )
-
           }),
-          '\u0421\u043F\u0438\u043D\u0430'
+          props.exercise.target
         ),
         _react2.default.createElement(
           _Chip2.default,
@@ -33897,7 +33908,7 @@ var Card = function Card(props) {
               { className: 'material-icons' },
               'replay'
             ) }),
-          '4-5'
+          props.exercise.sets
         ),
         _react2.default.createElement(
           _Chip2.default,
@@ -33912,12 +33923,15 @@ var Card = function Card(props) {
               { className: 'material-icons' },
               'vertical_align_bottom'
             ) }),
-          '20'
+          props.exercise.reps
         )
       ),
-      _react2.default.createElement('img', {
+      _react2.default.createElement('video', {
         className: _cardStack2.default.card_tut,
-        src: '/images/spinsh19a.gif'
+        src: props.exercise.tut,
+        type: 'video/mp4',
+        autoPlay: true,
+        loop: true
       })
     )
   );
