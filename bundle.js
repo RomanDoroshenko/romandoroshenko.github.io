@@ -33919,7 +33919,7 @@ var Card = function Card(props) {
       ),
       _react2.default.createElement('img', {
         className: _cardStack2.default.card_tut,
-        src: 'http://delavie.ru/wp-content/uploads/2016/8/spinsh19a.gif'
+        src: '/images/spinsh19a.gif'
       })
     )
   );
@@ -35802,19 +35802,18 @@ var CardStack = function (_React$Component) {
 
 	function CardStack(props) {
 		_classCallCheck(this, CardStack);
-console.log(props)
+
 		var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CardStack).call(this, props));
 
 		var childrenLength = props.children.length || 1;
 		var headerHeight = props.height / childrenLength;
-
 
 		if (childrenLength <= 1) throw new Error(errorMessage);
 
 		_this.initialTopOffsets = props.children.map(function (child, i) {
 			return equalsZero(i) ? 0 : headerHeight * i;
 		});
-console.log(_this.initialTopOffsets)
+
 		_this.state = {
 			topOffsets: _this.initialTopOffsets,
 			cardSelected: false
@@ -35850,7 +35849,7 @@ console.log(_this.initialTopOffsets)
 		key: 'renderCards',
 		value: function renderCards() {
 			var _this3 = this;
-// console.log(_this3.state.topOffsets)
+
 			var cloneCard = function cloneCard(child, i) {
 				return _react2.default.cloneElement(child, {
 					key: i,
@@ -35873,8 +35872,6 @@ console.log(_this.initialTopOffsets)
 				height: this.props.height,
 				width: this.props.width
 			});
-
-
 			return _react2.default.createElement(
 				'ul',
 				{ style: stackStyles },
@@ -35895,12 +35892,12 @@ var styles = {
 	margin: 0
 };
 
-// CardStack.propTypes = {
-// 	background: _react2.default.PropTypes.string,
-// 	height: _react2.default.PropTypes.number,
-// 	hoverOffset: _react2.default.PropTypes.number,
-// 	width: _react2.default.PropTypes.number
-// };
+CardStack.propTypes = {
+	background: _react2.default.PropTypes.string,
+	height: _react2.default.PropTypes.number,
+	hoverOffset: _react2.default.PropTypes.number,
+	width: _react2.default.PropTypes.number
+};
 
 CardStack.defaultProps = {
 	width: 350,
@@ -35968,10 +35965,7 @@ var Card = function (_React$Component) {
 			var _this2 = this;
 
 			var _props2 = this.props;
-
-
 			var cardId = _props2.cardId;
-			var fuckyou = 'fuckyou'
 			var cardSelected = _props2.cardSelected;
 			var topOffset = _props2.topOffset;
 			var hoverOffset = _props2.hoverOffset;
@@ -35982,11 +35976,8 @@ var Card = function (_React$Component) {
 				background: this.props.background,
 				transform: transform,
 				WebkitTransform: transform,
-				height: this.props.height,
+				height: this.props.height
 			});
-
-
-
 			return _react2.default.createElement(
 				'li',
 				{
