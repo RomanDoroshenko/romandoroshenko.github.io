@@ -33930,6 +33930,8 @@ var Card = function Card(props) {
         className: _cardStack2.default.card_tut,
         src: props.exercise.tut,
         type: 'video/mp4',
+        muted: true,
+        controls: true,
         autoPlay: true,
         loop: true
       })
