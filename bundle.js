@@ -1117,7 +1117,7 @@ module.exports = Object.keys || function keys(O) {
 
 exports.__esModule = true;
 
-var _shouldUpdate = __webpack_require__(232);
+var _shouldUpdate = __webpack_require__(230);
 
 var _shouldUpdate2 = _interopRequireDefault(_shouldUpdate);
 
@@ -1162,7 +1162,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _SvgIcon = __webpack_require__(235);
+var _SvgIcon = __webpack_require__(233);
 
 var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
 
@@ -3762,7 +3762,7 @@ exports.default = {
 
 exports.__esModule = true;
 
-var _setStatic = __webpack_require__(233);
+var _setStatic = __webpack_require__(231);
 
 var _setStatic2 = _interopRequireDefault(_setStatic);
 
@@ -3783,7 +3783,7 @@ exports.default = setDisplayName;
 
 exports.__esModule = true;
 
-var _getDisplayName = __webpack_require__(234);
+var _getDisplayName = __webpack_require__(232);
 
 var _getDisplayName2 = _interopRequireDefault(_getDisplayName);
 
@@ -3807,7 +3807,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _FontIcon = __webpack_require__(238);
+var _FontIcon = __webpack_require__(236);
 
 var _FontIcon2 = _interopRequireDefault(_FontIcon);
 
@@ -23986,7 +23986,7 @@ var _tabs = __webpack_require__(194);
 
 var _tabs2 = _interopRequireDefault(_tabs);
 
-var _bottomMenu = __webpack_require__(239);
+var _bottomMenu = __webpack_require__(238);
 
 var _bottomMenu2 = _interopRequireDefault(_bottomMenu);
 
@@ -29936,15 +29936,13 @@ var _tabs = __webpack_require__(224);
 
 var _tabs2 = _interopRequireDefault(_tabs);
 
-var _exercise = __webpack_require__(225);
-
-var _exercise2 = _interopRequireDefault(_exercise);
-
-var _cardStack = __webpack_require__(227);
+var _cardStack = __webpack_require__(225);
 
 var _FontIcon = __webpack_require__(94);
 
 var _FontIcon2 = _interopRequireDefault(_FontIcon);
+
+var _data = __webpack_require__(237);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29954,27 +29952,25 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var exercises = [{
-  id: 0,
-  title: 'Подтягивания на гравитроне',
-  workoutType: 'Торс',
-  target: 'Спина',
-  sets: '4-5',
-  reps: '20-25',
-  thumb: '/images/thumbs/back.png',
-  tut: '/images/animated/back.mp4'
-}];
+var workoutPlan = ['торс', 'кардио', 'ноги', 'кардио', 'руки'];
 
-// var screenWidth = window.innerWidth;
-// var screenHeight = window.innerHeight*0.85;
+var content = workoutPlan.map(function (day) {
+  var dayExercises = _data.exercises.filter(function (exercise) {
+    return exercise.workoutType === day;
+  }).map(function (exer) {
+    return _react2.default.createElement(_cardStack.Card, { key: exer.id, exercise: exer });
+  });
 
-// console.log(CardStack)
-
-// window.onresize = (e) => {
-//   console.log(`Height: ${e.target.innerHeight}. Width: ${e.target.innerWidth}`);
-
-// }
-
+  return _react2.default.createElement(
+    'div',
+    { className: _tabs2.default.panel },
+    _react2.default.createElement(
+      _cardStack.CardStack,
+      null,
+      dayExercises
+    )
+  );
+});
 
 var TabsExampleSwipeable = function (_React$Component) {
   _inherits(TabsExampleSwipeable, _React$Component);
@@ -30000,10 +29996,8 @@ var TabsExampleSwipeable = function (_React$Component) {
   _createClass(TabsExampleSwipeable, [{
     key: 'handleResize',
     value: function handleResize(event) {
-
       var newHeight = event.target.innerHeight * 0.85;
       var newWidth = event.target.innerWidth;
-
       this.setState({
         contentHeight: newHeight,
         contentWidth: newWidth
@@ -30022,19 +30016,12 @@ var TabsExampleSwipeable = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
           _Tabs.Tabs,
-          { style: {
-              position: 'fixed',
-              width: '100%',
-              zIndex: 999,
-              backgroundColor: '#F4511E',
-              height: '5vh'
-            },
+          { className: _tabs2.default.tabs,
             onChange: this.handleChange,
             value: this.state.slideIndex
           },
@@ -30077,66 +30064,7 @@ var TabsExampleSwipeable = function (_React$Component) {
             index: this.state.slideIndex,
             onChangeIndex: this.handleChange
           },
-          _react2.default.createElement(
-            'div',
-            { className: _tabs2.default.panel },
-            _react2.default.createElement(
-              _cardStack.CardStack,
-              null,
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: _tabs2.default.panel },
-            _react2.default.createElement(
-              _cardStack.CardStack,
-              null,
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: _tabs2.default.panel },
-            _react2.default.createElement(
-              _cardStack.CardStack,
-              null,
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: _tabs2.default.panel },
-            _react2.default.createElement(
-              _cardStack.CardStack,
-              null,
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: _tabs2.default.panel },
-            _react2.default.createElement(
-              _cardStack.CardStack,
-              null,
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] }),
-              _react2.default.createElement(_cardStack.Card, { exercise: exercises[0] })
-            )
-          )
+          content
         )
       );
     }
@@ -33643,90 +33571,10 @@ exports.default = mod;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"panel":"tabs__panel___2wZ-x","content":"tabs__content___3VM1p","cardstack":"tabs__cardstack___28PDM","card":"tabs__card___1Nj4j","active":"tabs__active___3yAWN"};
+module.exports = {"tabs":"tabs__tabs___2SWqb","panel":"tabs__panel___2wZ-x","content":"tabs__content___3VM1p","cardstack":"tabs__cardstack___28PDM","card":"tabs__card___1Nj4j","active":"tabs__active___3yAWN"};
 
 /***/ }),
 /* 225 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _exercise = __webpack_require__(226);
-
-var _exercise2 = _interopRequireDefault(_exercise);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Exercise = function (_React$Component) {
-  _inherits(Exercise, _React$Component);
-
-  function Exercise(props) {
-    _classCallCheck(this, Exercise);
-
-    return _possibleConstructorReturn(this, (Exercise.__proto__ || Object.getPrototypeOf(Exercise)).call(this, props));
-    // this.state = {styles: styles.cardstack};
-  }
-
-  _createClass(Exercise, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {}
-  }, {
-    key: 'func',
-    value: function func() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: _exercise2.default.exercise },
-        _react2.default.createElement(
-          'div',
-          { className: _exercise2.default.exercise_header },
-          _react2.default.createElement(
-            'h2',
-            { className: _exercise2.default.exercise_title },
-            '\u041E\u0442\u0436\u0438\u043C\u0430\u043D\u0438\u044F'
-          )
-        ),
-        _react2.default.createElement('div', { className: _exercise2.default.exercise_content })
-      );
-    }
-  }]);
-
-  return Exercise;
-}(_react2.default.Component);
-
-exports.default = Exercise;
-
-/***/ }),
-/* 226 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-module.exports = {"exercise":"exercise__exercise___1kU10","exercise_header":"exercise__exercise_header___11Xtb","exercise_content":"exercise__exercise_content___13uTh","exercise_title":"exercise__exercise_title___3veph","exercise_gif":"exercise__exercise_gif___1DvDr","chip":"exercise__chip___1g6Z-"};
-
-/***/ }),
-/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33743,15 +33591,15 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _cardStack = __webpack_require__(228);
+var _cardStack = __webpack_require__(226);
 
 var _cardStack2 = _interopRequireDefault(_cardStack);
 
-var _Chip = __webpack_require__(229);
+var _Chip = __webpack_require__(227);
 
 var _Chip2 = _interopRequireDefault(_Chip);
 
-var _Avatar = __webpack_require__(236);
+var _Avatar = __webpack_require__(234);
 
 var _Avatar2 = _interopRequireDefault(_Avatar);
 
@@ -33943,14 +33791,14 @@ exports.CardStack = CardStack;
 exports.Card = Card;
 
 /***/ }),
-/* 228 */
+/* 226 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 module.exports = {"cardstack":"cardStack__cardstack___3iRqa","card":"cardStack__card___3VAnb","active":"cardStack__active___13juO","card_header":"cardStack__card_header___hpjVD","card_content":"cardStack__card_content___3qHFE","card_thumb":"cardStack__card_thumb___3QymH","card_title":"cardStack__card_title___3ymX3","card_chip_wrapper":"cardStack__card_chip_wrapper___2GkZ4","card_chip":"cardStack__card_chip___CtehM","card_tut":"cardStack__card_tut___2HE7p","card_description":"cardStack__card_description___3w1SU"};
 
 /***/ }),
-/* 229 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33961,7 +33809,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _Chip = __webpack_require__(230);
+var _Chip = __webpack_require__(228);
 
 var _Chip2 = _interopRequireDefault(_Chip);
 
@@ -33970,7 +33818,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _Chip2.default;
 
 /***/ }),
-/* 230 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34030,7 +33878,7 @@ var _EnhancedButton = __webpack_require__(62);
 
 var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
 
-var _cancel = __webpack_require__(231);
+var _cancel = __webpack_require__(229);
 
 var _cancel2 = _interopRequireDefault(_cancel);
 
@@ -34329,7 +34177,7 @@ exports.default = Chip;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 231 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34367,7 +34215,7 @@ NavigationCancel.muiName = 'SvgIcon';
 exports.default = NavigationCancel;
 
 /***/ }),
-/* 232 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34428,7 +34276,7 @@ exports.default = shouldUpdate;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 233 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34447,7 +34295,7 @@ var setStatic = function setStatic(key, value) {
 exports.default = setStatic;
 
 /***/ }),
-/* 234 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34469,7 +34317,7 @@ var getDisplayName = function getDisplayName(Component) {
 exports.default = getDisplayName;
 
 /***/ }),
-/* 235 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34641,7 +34489,7 @@ exports.default = SvgIcon;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 236 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34652,7 +34500,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _Avatar = __webpack_require__(237);
+var _Avatar = __webpack_require__(235);
 
 var _Avatar2 = _interopRequireDefault(_Avatar);
 
@@ -34661,7 +34509,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _Avatar2.default;
 
 /***/ }),
-/* 237 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34838,7 +34686,7 @@ exports.default = Avatar;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 238 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35003,7 +34851,13 @@ exports.default = FontIcon;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 239 */
+/* 237 */
+/***/ (function(module, exports) {
+
+module.exports = {"exercises":[{"id":0,"title":"Сгибание рук на блоке","workoutType":"руки","target":"бицепс","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/arms/arm_block_biceps.png","tut":"/assets/exercises/arms/arm_block_biceps.mp4"},{"id":1,"title":"Разгибание рук на блоке","workoutType":"руки","target":"трицепс","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/arms/arm_block_triceps.png","tut":"/assets/exercises/arms/arm_block_triceps.mp4"},{"id":2,"title":"Молоты гантелями сидя","workoutType":"руки","target":"бицепс","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/arms/arm_dumbell_biceps.png","tut":"/assets/exercises/arms/arm_dumbell_biceps.mp4"},{"id":3,"title":"Разгибание рук из-за головы сидя","workoutType":"руки","target":"трицепс","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/arms/arm_dumbell_triceps.png","tut":"/assets/exercises/arms/arm_dumbell_triceps.mp4"},{"id":4,"title":"Тяга штанги к подбородку","workoutType":"руки","target":"дельты","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/arms/delt_barbell_raise.png","tut":"/assets/exercises/arms/delt_barbell_raise.mp4"},{"id":5,"title":"Жим гантелей сидя","workoutType":"руки","target":"дельты","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/arms/delt_dumbell_raise.png","tut":"/assets/exercises/arms/delt_dumbell_raise.mp4"},{"id":6,"title":"Развод гантелей в стороны","workoutType":"руки","target":"дельты","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/arms/delt_dumbell_side_raises.png","tut":"/assets/exercises/arms/delt_dumbell_side_raises.mp4"},{"id":7,"title":"Тяга верхнего блока за голову","workoutType":"торс","target":"спина","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/torso/back_block_pulldown.png","tut":"/assets/exercises/torso/back_block_pulldown.mp4"},{"id":8,"title":"Подтягивание на гравитроне","workoutType":"торс","target":"спина","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/torso/back_gravitron.png","tut":"/assets/exercises/torso/back_gravitron.mp4"},{"id":9,"title":"Гиперэкстензия","workoutType":"торс","target":"спина","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/torso/back_hyperextension.png","tut":"/assets/exercises/torso/back_hyperextension.mp4"},{"id":10,"title":"Тяга нижнего блока перед собой","workoutType":"торс","target":"спина","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/torso/back_block_sit_pull.png","tut":"/assets/exercises/torso/back_block_sit_pull.mp4"},{"id":11,"title":"Жим сидя на грудь","workoutType":"торс","target":"грудь","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/torso/chest_pushups.png","tut":"/assets/exercises/torso/chest_pushups.mp4"},{"id":12,"title":"Разведение рук с гантелями сидя","workoutType":"торс","target":"грудь","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/torso/chest_bench_crossover.png","tut":"/assets/exercises/torso/chest_bench_crossover.mp4"},{"id":13,"title":"Уголок","workoutType":"торс","target":"пресс","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/torso/abs_L.png","tut":"/assets/exercises/torso/abs_L.mp4"},{"id":14,"title":"Сгибание туловища на фитболе","workoutType":"торс","target":"пресс","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/torso/abs_onball.png","tut":"/assets/exercises/torso/abs_onball.mp4"},{"id":15,"title":"Эллиптический тренажер","workoutType":"кардио","target":"жир","sets":"1","reps":"40-60 min","thumb":"/assets/exercises/cardio/cardio_elliptic.png","tut":"/assets/exercises/cardio/cardio_elliptic.mp4"},{"id":16,"title":"Групповой тренинг","workoutType":"кардио","target":"жир","sets":"1","reps":"40-60 min","thumb":"/assets/exercises/cardio/cardio_group.png","tut":"/assets/exercises/cardio/cardio_group.mp4"},{"id":17,"title":"Беговая дорожка","workoutType":"кардио","target":"жир","sets":"1","reps":"40-60 min","thumb":"/assets/exercises/cardio/cardio_tredmill.png","tut":"/assets/exercises/cardio/cardio_tredmill.mp4"},{"id":18,"title":"Сгибание ног на блоке лежа","workoutType":"ноги","target":"бедра","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_biceps_block.png","tut":"/assets/exercises/legs/legs_biceps_block.mp4"},{"id":19,"title":"Сведение бедер на блоке","workoutType":"ноги","target":"бедра","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_block_close.png","tut":"/assets/exercises/legs/legs_block_close.mp4"},{"id":20,"title":"Разведение бедер на блоке","workoutType":"ноги","target":"бедра","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_block_open.png","tut":"/assets/exercises/legs/legs_block_open.mp4"},{"id":21,"title":"Разгибание ног на блоке сидя","workoutType":"ноги","target":"бедра","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_block_quad.png","tut":"/assets/exercises/legs/legs_block_quad.mp4"},{"id":22,"title":"Махи ногами на блоке","workoutType":"ноги","target":"ягодицы","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_block_swing.png","tut":"/assets/exercises/legs/legs_block_swing.mp4"},{"id":23,"title":"Мостик в тренажере Смита","workoutType":"ноги","target":"ягодицы","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_bridge.png","tut":"/assets/exercises/legs/legs_bridge.mp4"},{"id":24,"title":"Становая тяга","workoutType":"ноги","target":"бедра","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_deadlift.png","tut":"/assets/exercises/legs/legs_deadlift.mp4"},{"id":25,"title":"Приседания с гантелей","workoutType":"ноги","target":"ягодицы","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_dumbell_squats.png","tut":"/assets/exercises/legs/legs_dumbell_squats.mp4"},{"id":26,"title":"Жим ног в гравитроне","workoutType":"ноги","target":"ягодицы","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_gravitron.png","tut":"/assets/exercises/legs/legs_gravitron.mp4"},{"id":27,"title":"Выпады с отягощениями","workoutType":"ноги","target":"ягодицы","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_lunge.png","tut":"/assets/exercises/legs/legs_lunge.mp4"},{"id":28,"title":"Присежание на одной ноге от скамьи","workoutType":"ноги","target":"бедра","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_onelegsquat.png","tut":"/assets/exercises/legs/legs_onelegsquat.mp4"},{"id":29,"title":"Приседание в тренажере Смита","workoutType":"ноги","target":"ягодицы","sets":"4-5","reps":"20-25","thumb":"/assets/exercises/legs/legs_squat.png","tut":"/assets/exercises/legs/legs_squat.mp4"}]}
+
+/***/ }),
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35019,25 +34873,25 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _fitnessCenter = __webpack_require__(240);
+var _fitnessCenter = __webpack_require__(239);
 
 var _fitnessCenter2 = _interopRequireDefault(_fitnessCenter);
 
-var _kitchen = __webpack_require__(241);
+var _kitchen = __webpack_require__(240);
 
 var _kitchen2 = _interopRequireDefault(_kitchen);
 
-var _settings = __webpack_require__(242);
+var _settings = __webpack_require__(241);
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _BottomNavigation = __webpack_require__(243);
+var _BottomNavigation = __webpack_require__(242);
 
-var _Paper = __webpack_require__(246);
+var _Paper = __webpack_require__(245);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _locationOn = __webpack_require__(249);
+var _locationOn = __webpack_require__(248);
 
 var _locationOn2 = _interopRequireDefault(_locationOn);
 
@@ -35131,7 +34985,7 @@ var BottomMenu = function (_Component) {
 exports.default = BottomMenu;
 
 /***/ }),
-/* 240 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35169,7 +35023,7 @@ PlacesFitnessCenter.muiName = 'SvgIcon';
 exports.default = PlacesFitnessCenter;
 
 /***/ }),
-/* 241 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35207,7 +35061,7 @@ PlacesKitchen.muiName = 'SvgIcon';
 exports.default = PlacesKitchen;
 
 /***/ }),
-/* 242 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35245,7 +35099,7 @@ ActionSettings.muiName = 'SvgIcon';
 exports.default = ActionSettings;
 
 /***/ }),
-/* 243 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35256,11 +35110,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.BottomNavigationItem = exports.BottomNavigation = undefined;
 
-var _BottomNavigation2 = __webpack_require__(244);
+var _BottomNavigation2 = __webpack_require__(243);
 
 var _BottomNavigation3 = _interopRequireDefault(_BottomNavigation2);
 
-var _BottomNavigationItem2 = __webpack_require__(245);
+var _BottomNavigationItem2 = __webpack_require__(244);
 
 var _BottomNavigationItem3 = _interopRequireDefault(_BottomNavigationItem2);
 
@@ -35271,7 +35125,7 @@ exports.BottomNavigationItem = _BottomNavigationItem3.default;
 exports.default = _BottomNavigation3.default;
 
 /***/ }),
-/* 244 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35375,7 +35229,7 @@ exports.default = BottomNavigation;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 245 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35496,7 +35350,7 @@ exports.default = BottomNavigationItem;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 246 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35507,7 +35361,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _Paper = __webpack_require__(247);
+var _Paper = __webpack_require__(246);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
@@ -35516,7 +35370,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _Paper2.default;
 
 /***/ }),
-/* 247 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35566,7 +35420,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _propTypes3 = __webpack_require__(248);
+var _propTypes3 = __webpack_require__(247);
 
 var _propTypes4 = _interopRequireDefault(_propTypes3);
 
@@ -35674,7 +35528,7 @@ exports.default = Paper;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 248 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35715,7 +35569,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 249 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

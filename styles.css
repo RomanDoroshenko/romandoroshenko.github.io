@@ -1,4 +1,12 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);.tabs__panel___2wZ-x {
+.tabs__tabs___2SWqb {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  background-color: #F4511E;
+  height: 5vh;
+}
+
+.tabs__panel___2wZ-x {
 
     margin: 0;
     background-color: rgb(37, 37, 37);
@@ -47,104 +55,7 @@
 .tabs__card___1Nj4j:hover {
     -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
             box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
-  }.exercise__exercise___1kU10 {
-  width: 100%;
-  height: 100%;
-  /* background: #2B2B2B; */
-  font-family:  Roboto, sans-serif;
-  color:black;
-
-}
-
-
-
-.exercise__exercise___1kU10::before {
-
-  
-  }
-
-
-
-.exercise__exercise_header___11Xtb {
-
-
-    /* background: #E1F00D;  */
-    /* opacity:0.7;  */
-    /* background: no-repeat center/150% url(https://cdn-mf0.heartyhosting.com/sites/mensfitness.com/files/styles/wide_videos/public/_main_girlgym.jpg); */ */
-    width: 100%;
-    height: 25%; 
-
-
-}
-
-
-
-/* hack to eliminate top offset! */
-
-
-
-/* .exercise_header::before {
-    content: '*';
-    visibility: hidden;
-} */
-
-
-
-.exercise__exercise_content___13uTh {
-  background: #AA1D1D;
-  width: 100%;
-  height: 75%;
- color: #dadada;
-  font-family:  roboto, sans-serif;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  
-}
-
-
-
-.exercise__exercise_title___3veph {
-  font-weight: 300;
-  margin:0;
-  padding: 20px;
-
-
-}
-
-
-
-.exercise__exercise_gif___1DvDr {
-  width: 100%;
-
-}
-
-
-
-.exercise__exercise_content___13uTh p {
-    font-weight: 300;
-    margin: 0;
-    margin-top: 10px;
-
-}
-
-
-
-.exercise__chip___1g6Z- {
-  background: #bbb;
-  color: #222;
-  border-radius: 32px;
-  padding: 2px;
-  margin: 5px
-  
-}.cardStack__cardstack___3iRqa {
+  }.cardStack__cardstack___3iRqa {
     
         margin: 0;
         background-color: rgb(88, 33, 124);
