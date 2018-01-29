@@ -33616,11 +33616,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var chipStyle = {
-  backgroundColor: '#F4511E'
+  backgroundColor: '#673AB7'
 };
 var avatarStyle = {
   backgroundColor: '	#58217c'
 };
+
+console;
 
 var CardStack = function (_React$Component) {
   _inherits(CardStack, _React$Component);
@@ -33634,6 +33636,7 @@ var CardStack = function (_React$Component) {
       activeCardIndex: null
     };
     _this.handleCardClick = _this.handleCardClick.bind(_this);
+    _this.handleVideoClick = _this.handleVideoClick.bind(_this);
     // this.childrenRefs = [];
 
     return _this;
@@ -33660,6 +33663,14 @@ var CardStack = function (_React$Component) {
         cardRef.scrollIntoView({ block: "end", behavior: "smooth" });
       }, 250);
     }
+  }, {
+    key: 'handleVideoClick',
+    value: function handleVideoClick(videoRef) {
+
+      videoRef.play();
+
+      console.log(videoRef);
+    }
 
     // passing state as props to children
 
@@ -33672,6 +33683,7 @@ var CardStack = function (_React$Component) {
         return _react2.default.cloneElement(child, {
           // inputRef: (el => this.childrenRefs.push(el)),
           onClick: _this2.handleCardClick,
+          onVideoClick: _this2.handleVideoClick,
           cardIndex: index,
           isActive: index === _this2.state.activeCardIndex
         });
@@ -33694,6 +33706,7 @@ var CardStack = function (_React$Component) {
 var Card = function Card(props) {
 
   var cardRef = null;
+  var videoRef = null;
 
   return _react2.default.createElement(
     'div',
@@ -33775,13 +33788,22 @@ var Card = function Card(props) {
         )
       ),
       _react2.default.createElement('video', {
+
+        ref: function ref(el) {
+          videoRef = el;
+        },
+        onClick: function onClick(event) {
+          event.stopPropagation();
+          event.preventDefault();
+          props.onVideoClick(videoRef);
+        },
+
         className: _cardStack2.default.card_tut,
         src: props.exercise.tut,
         type: 'video/mp4',
         muted: true,
-        controls: true,
-        autoPlay: true,
-        loop: true
+        loop: true,
+        poster: '/assets/icons/play_button.png'
       })
     )
   );
