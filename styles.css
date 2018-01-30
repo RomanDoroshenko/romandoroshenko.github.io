@@ -10,10 +10,10 @@
 
     margin: 0;
     background-color: rgb(37, 37, 37);
-    height: 85vh;
+    height: 86vh;
     font: 24px Roboto, sans-serif;
     margin-top: 7vh;
-    margin-bottom: 8vh;
+    margin-bottom: 7vh;
     overflow: scroll;
     color: #dfdfdf;
 
@@ -179,5 +179,7 @@
 
 
 
-
+.bottomMenu__active___2T1Pb {
+    background-color: red;
+}
 /*# sourceMappingURL=styles.css.map*/
