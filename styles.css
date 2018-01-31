@@ -214,8 +214,10 @@
     
     .birthday__squirell___56zcF {
         background: url('/assets/icons/squirell_home.png') no-repeat center center fixed;
+        background-size: contain;
         width: 100%;
         height: 60%;
+
     }
     
     .birthday__top_text___1CN3t {
