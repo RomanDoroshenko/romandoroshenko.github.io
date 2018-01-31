@@ -4,6 +4,8 @@
   z-index: 999;
   background-color: #F4511E;
   height: 5vh;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
 }
 
 .tabs__panel___2wZ-x {
@@ -181,5 +183,91 @@
 
 .bottomMenu__active___2T1Pb {
     background-color: red;
-}
+}.birthday__panel___1EDGt {
+    
+        margin: 0;
+        background-color: rgb(88, 33, 124);
+        height: 93vh;
+        font: 24px Roboto, sans-serif;
+        margin-bottom: 7vh;
+        overflow: scroll;
+        color: #dfdfdf;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    
+    }
+    
+    .birthday__panel___1EDGt::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .birthday__squirell___56zcF {
+        background: url('/assets/icons/squirell_home.png') no-repeat center center fixed;
+        width: 100%;
+        height: 60%;
+    }
+    
+    .birthday__top_text___1CN3t {
+        color: #f99c3c;
+        font: 36px Roboto, sans-serif;
+        text-align: center;
+    }
+    
+    .birthday__bottom_text___1Wi5Y {
+        color: #f99c3c;
+        font: 20px Roboto, sans-serif;
+        text-align: left;
+    }.meal-plan__panel___3edOi {
+    
+        margin: 0;
+        background-color: rgb(88, 33, 124);
+        height: 93vh;
+        font: 24px Roboto, sans-serif;
+        margin-bottom: 7vh;
+        overflow: scroll;
+        color: #dfdfdf;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    
+    }
+    
+    .meal-plan__panel___3edOi::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .meal-plan__fridge___3od3L {
+        background: url('/assets/icons/fridge.png') no-repeat center center fixed;
+        width: 100%;
+        height: 60%;
+    }
+    
+    .meal-plan__top_text___ZqeKT {
+        color: #f99c3c;
+        font: 36px Roboto, sans-serif;
+        text-align: center;
+    }
+
+
 /*# sourceMappingURL=styles.css.map*/
